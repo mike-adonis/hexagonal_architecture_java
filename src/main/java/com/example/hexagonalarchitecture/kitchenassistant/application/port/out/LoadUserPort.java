@@ -6,4 +6,5 @@ public interface LoadUserPort {
 
     User loadSystemUser(Long id);
 
+    String createDummyUser();
 }

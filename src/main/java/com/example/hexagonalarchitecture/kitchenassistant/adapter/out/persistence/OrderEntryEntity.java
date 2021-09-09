@@ -23,7 +23,7 @@ public class OrderEntryEntity {
     @ManyToOne
     private UserEntity user;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<OrderItem> items;
 
     public OrderEntryEntity(UserEntity user, List<String> items) {

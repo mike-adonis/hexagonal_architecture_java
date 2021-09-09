@@ -8,6 +8,9 @@ import com.example.hexagonalarchitecture.utility.PersistenceAdapter;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @PersistenceAdapter
 @RequiredArgsConstructor
@@ -23,6 +26,18 @@ public class UserPersistenceAdapter implements LoadUserPort, OrderEntryPort {
     public User loadSystemUser(Long id) {
         UserEntity user = userRepository.findById(id).orElseThrow(EntityNotFoundException::new);
         return userMapper.mapToDomainEntity(user);
+    }
+
+    @Transactional
+    @Override
+    public String createDummyUser() {
+        UserEntity user = new UserEntity(null,
+                "James Milner",
+                new AddressJpaEntity(null, 12, "Osborne", "Texas-town", "Texas"),
+                new WalletJpaEntity(null, BigDecimal.valueOf(200000D), new Date())
+        );
+        UserEntity response = userRepository.save(user);
+        return response.getName().concat(" ".concat(String.valueOf(response.getId())));
     }
 
     @Override

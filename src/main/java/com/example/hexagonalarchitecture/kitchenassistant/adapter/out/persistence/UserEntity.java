@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,10 +19,12 @@ class UserEntity {
 
 	private String name;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private AddressJpaEntity addressJpaEntity;
 
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private WalletJpaEntity walletJpaEntity;
+
+
 
 }
