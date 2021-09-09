@@ -43,7 +43,12 @@ public class UserPersistenceAdapter implements LoadUserPort, OrderEntryPort {
     @Override
     public Long createOrderEntry(Long userId, StockRequest request) {
         UserEntity user = userRepository.findById(userId).orElseThrow(EntityNotFoundException::new);
-        OrderEntryEntity response = orderEntryRepository.save(new OrderEntryEntity(user, request.getFoodItems()));
+        OrderEntryEntity response = orderEntryRepository.save(new OrderEntryEntity(user, request));
         return response.getId();
+    }
+
+    @Override
+    public OrderEntryEntity findById(Long id) {
+        return orderEntryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 }

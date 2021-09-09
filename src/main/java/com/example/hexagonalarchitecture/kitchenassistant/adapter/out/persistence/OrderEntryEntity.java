@@ -1,11 +1,10 @@
 package com.example.hexagonalarchitecture.kitchenassistant.adapter.out.persistence;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.example.hexagonalarchitecture.kitchenassistant.application.port.in.StockRequest;
+import lombok.*;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,9 +25,15 @@ public class OrderEntryEntity {
     @OneToMany(cascade = CascadeType.ALL)
     private List<OrderItem> items;
 
-    public OrderEntryEntity(UserEntity user, List<String> items) {
+    private BigDecimal cost;
+
+    private String note;
+
+    public OrderEntryEntity(UserEntity user, StockRequest request) {
         this.user = user;
-        this.items = items.stream().map(OrderItem::new).collect(Collectors.toList());
+        this.items = request.getFoodItems().stream().map(OrderItem::new).collect(Collectors.toList());
+        this.note = request.getAdditionalNote();
+        this.cost = request.getCost();
     }
 
 
@@ -37,12 +42,13 @@ public class OrderEntryEntity {
     @Data
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
     @NoArgsConstructor
-    class OrderItem {
+    public static class OrderItem {
 
         @Id
         @GeneratedValue
         private Long id;
 
+        @Getter
         private String name;
 
         public OrderItem(String name) {

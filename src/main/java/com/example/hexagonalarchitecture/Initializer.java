@@ -12,7 +12,6 @@ public class Initializer implements ApplicationListener<ContextRefreshedEvent> {
 
     private final LoadUserPort userPort;
 
-
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         String name = userPort.createDummyUser();
