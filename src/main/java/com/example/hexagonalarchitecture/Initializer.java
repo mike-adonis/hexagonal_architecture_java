@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
 @Component
-public class SetupDataLoader implements ApplicationListener<ContextRefreshedEvent> {
+public class Initializer implements ApplicationListener<ContextRefreshedEvent> {
 
     private final LoadUserPort userPort;
 
