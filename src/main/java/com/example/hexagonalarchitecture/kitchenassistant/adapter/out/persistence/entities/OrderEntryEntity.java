@@ -1,6 +1,6 @@
-package com.example.hexagonalarchitecture.kitchenassistant.adapter.out.persistence;
+package com.example.hexagonalarchitecture.kitchenassistant.adapter.out.persistence.entities;
 
-import com.example.hexagonalarchitecture.kitchenassistant.application.port.in.StockRequest;
+import com.example.hexagonalarchitecture.kitchenassistant.application.port.in.dtos.StockRequest;
 import lombok.*;
 
 import javax.persistence.*;

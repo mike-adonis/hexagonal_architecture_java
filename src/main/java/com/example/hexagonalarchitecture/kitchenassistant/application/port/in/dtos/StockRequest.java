@@ -1,4 +1,4 @@
-package com.example.hexagonalarchitecture.kitchenassistant.application.port.in;
+package com.example.hexagonalarchitecture.kitchenassistant.application.port.in.dtos;
 
 import com.example.hexagonalarchitecture.utility.SelfValidating;
 import lombok.Value;

@@ -1,4 +1,4 @@
-package com.example.hexagonalarchitecture.kitchenassistant.adapter.out.persistence;
+package com.example.hexagonalarchitecture.kitchenassistant.adapter.out.persistence.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-class UserEntity {
+public class UserEntity {
 
 	@Id
 	@GeneratedValue

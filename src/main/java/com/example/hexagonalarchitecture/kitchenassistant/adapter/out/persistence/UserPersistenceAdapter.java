@@ -1,6 +1,12 @@
 package com.example.hexagonalarchitecture.kitchenassistant.adapter.out.persistence;
 
-import com.example.hexagonalarchitecture.kitchenassistant.application.port.in.StockRequest;
+import com.example.hexagonalarchitecture.kitchenassistant.adapter.out.persistence.entities.AddressJpaEntity;
+import com.example.hexagonalarchitecture.kitchenassistant.adapter.out.persistence.entities.OrderEntryEntity;
+import com.example.hexagonalarchitecture.kitchenassistant.adapter.out.persistence.entities.UserEntity;
+import com.example.hexagonalarchitecture.kitchenassistant.adapter.out.persistence.entities.WalletJpaEntity;
+import com.example.hexagonalarchitecture.kitchenassistant.adapter.out.persistence.repository.OrderEntryRepository;
+import com.example.hexagonalarchitecture.kitchenassistant.adapter.out.persistence.repository.UserRepository;
+import com.example.hexagonalarchitecture.kitchenassistant.application.port.in.dtos.StockRequest;
 import com.example.hexagonalarchitecture.kitchenassistant.application.port.out.LoadUserPort;
 import com.example.hexagonalarchitecture.kitchenassistant.application.port.out.OrderEntryPort;
 import com.example.hexagonalarchitecture.kitchenassistant.domain.User;
@@ -8,7 +14,6 @@ import com.example.hexagonalarchitecture.utility.PersistenceAdapter;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.EntityNotFoundException;
-import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -28,7 +33,6 @@ public class UserPersistenceAdapter implements LoadUserPort, OrderEntryPort {
         return userMapper.mapToDomainEntity(user);
     }
 
-    @Transactional
     @Override
     public String createDummyUser() {
         UserEntity user = new UserEntity(null,

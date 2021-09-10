@@ -1,5 +1,7 @@
 package com.example.hexagonalarchitecture.kitchenassistant.adapter.out.persistence;
 
+import com.example.hexagonalarchitecture.kitchenassistant.adapter.out.persistence.entities.AddressJpaEntity;
+import com.example.hexagonalarchitecture.kitchenassistant.adapter.out.persistence.entities.UserEntity;
 import com.example.hexagonalarchitecture.kitchenassistant.domain.Address;
 import com.example.hexagonalarchitecture.kitchenassistant.domain.User;
 import com.example.hexagonalarchitecture.kitchenassistant.domain.Wallet;

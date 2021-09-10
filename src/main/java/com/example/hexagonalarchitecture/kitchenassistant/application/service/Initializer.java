@@ -1,4 +1,4 @@
-package com.example.hexagonalarchitecture;
+package com.example.hexagonalarchitecture.kitchenassistant.application.service;
 
 import com.example.hexagonalarchitecture.kitchenassistant.application.port.out.LoadUserPort;
 import lombok.RequiredArgsConstructor;

@@ -1,8 +1,8 @@
 package com.example.hexagonalarchitecture.kitchenassistant.application.service;
 
-import com.example.hexagonalarchitecture.kitchenassistant.adapter.out.persistence.OrderEntryEntity;
-import com.example.hexagonalarchitecture.kitchenassistant.application.port.in.OrderItems;
-import com.example.hexagonalarchitecture.kitchenassistant.application.port.in.StockRequest;
+import com.example.hexagonalarchitecture.kitchenassistant.adapter.out.persistence.entities.OrderEntryEntity;
+import com.example.hexagonalarchitecture.kitchenassistant.application.port.in.OrderItemsPort;
+import com.example.hexagonalarchitecture.kitchenassistant.application.port.in.dtos.StockRequest;
 import com.example.hexagonalarchitecture.kitchenassistant.application.port.out.LoadUserPort;
 import com.example.hexagonalarchitecture.kitchenassistant.application.port.out.OrderEntryPort;
 import com.example.hexagonalarchitecture.kitchenassistant.domain.Order;
@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @UseCase
-public class OrderItemsService implements OrderItems {
+public class OrderItemsPortService implements OrderItemsPort {
 
     private final LoadUserPort userPort;
 

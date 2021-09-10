@@ -1,4 +1,4 @@
-package com.example.hexagonalarchitecture.kitchenassistant.adapter.out.persistence;
+package com.example.hexagonalarchitecture.kitchenassistant.adapter.out.persistence.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
